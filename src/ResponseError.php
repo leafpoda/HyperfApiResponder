@@ -1,14 +1,14 @@
 <?php
 
-namespace HyperfApiResponder;
+namespace Leafpoda\HyperfApiResponder;
 
 use App\Exception\ValidateException;
 use Hyperf\HttpMessage\Stream\SwooleStream;
 use Hyperf\Utils\Codec\Json;
 use Psr\Http\Message\ResponseInterface;
-use HyperfApiResponder\Contracts\ServiceException;
-use HyperfApiResponder\Contracts\NondisclosureException;
-use HyperfApiResponder\Entity\ResponseEntity;
+use Leafpoda\HyperfApiResponder\Contracts\ServiceException;
+use Leafpoda\HyperfApiResponder\Contracts\NondisclosureException;
+use Leafpoda\HyperfApiResponder\Entity\ResponseEntity;
 use Throwable;
 
 class ResponseError

@@ -1,9 +1,9 @@
 <?php
 
-namespace HyperfApiResponder;
+namespace Leafpoda\HyperfApiResponder;
 
-use HyperfApiResponder\Entity\DataEntity;
-use HyperfApiResponder\Entity\ResponseEntity;
+use Leafpoda\HyperfApiResponder\Entity\DataEntity;
+use Leafpoda\HyperfApiResponder\Entity\ResponseEntity;
 
 class ResponseEntityFactory
 {

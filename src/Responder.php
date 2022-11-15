@@ -1,11 +1,11 @@
 <?php
 
-namespace HyperfApiResponder;
+namespace Leafpoda\HyperfApiResponder;
 
 use Hyperf\HttpServer\Response;
 use Hyperf\Utils\Arr;
 use Psr\Http\Message\ResponseInterface;
-use HyperfApiResponder\Entity\ResponseEntity;
+use Leafpoda\HyperfApiResponder\Entity\ResponseEntity;
 use Throwable;
 
 trait Responder

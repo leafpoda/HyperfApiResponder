@@ -1,8 +1,8 @@
 <?php
 
-namespace HyperfApiResponder;
+namespace Leafpoda\HyperfApiResponder;
 
-use HyperfApiResponder\Contracts\ResourceInterface;
+use Leafpoda\HyperfApiResponder\Contracts\ResourceInterface;
 
 class DefaultResource implements ResourceInterface
 {

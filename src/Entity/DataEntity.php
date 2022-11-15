@@ -1,6 +1,6 @@
 <?php
 
-namespace HyperfApiResponder\Entity;
+namespace Leafpoda\HyperfApiResponder\Entity;
 
 class DataEntity
 {

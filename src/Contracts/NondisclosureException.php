@@ -1,6 +1,6 @@
 <?php
 
-namespace HyperfApiResponder\Contracts;
+namespace Leafpoda\HyperfApiResponder\Contracts;
 
 /**
  * @method string getMessage()

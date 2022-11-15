@@ -1,6 +1,6 @@
 <?php
 
-namespace HyperfApiResponder;
+namespace Leafpoda\HyperfApiResponder;
 
 use Throwable;
 

@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace HyperfApiResponder\Entity;
+namespace Leafpoda\HyperfApiResponder\Entity;
 
 
 use Hyperf\Contract\Arrayable;
