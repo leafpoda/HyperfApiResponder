@@ -1,0 +1,18 @@
+{
+    "name": "leafpoda/hyperf-api-responder",
+    "autoload": {
+        "psr-4": {
+            "Leafpoda\\HyperfApiResponder\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "cayden",
+            "email": "cayden.chen@linkworld.cn"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "hyperf/http-server": "~v2.2.0"
+    }
+}
