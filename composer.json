@@ -14,5 +14,6 @@
     "require": {
         "php": ">=8.0",
         "hyperf/http-server": "~v2.2.0"
-    }
+    },
+    "license": "MIT"
 }
