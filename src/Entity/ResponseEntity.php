@@ -62,7 +62,10 @@ class ResponseEntity implements Arrayable
     {
         return [
             'code' => $this->code,
-            'message' => $this->message,
+            'info' => [
+                'ok' => $this->code == 0,
+                'message' => $this->message,
+            ],
             'data' => $this->data,
         ];
     }
