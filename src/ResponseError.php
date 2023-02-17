@@ -38,7 +38,7 @@ class ResponseError
                 : $throwable->getCode();
         }
 
-        if ($throwable instanceof NondisclosureException) {
+        if ($throwable instanceof NondisclosureException || (! $throwable instanceof  ServiceException)) {
             $message = ResponseEntity::DEFAULT_ERROR_MESSAGE;
         } else {
             // 若 code 为 string 时，则将 code 放 message 前面.
