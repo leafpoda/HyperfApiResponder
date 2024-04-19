@@ -4,32 +4,22 @@ namespace Leafpoda\HyperfApiResponder\Entity;
 
 class DataEntity
 {
-    public $meta;
 
-    public $data;
+    public mixed $data;
 
     /**
-     * @param $meta
      * @param $data
      */
-    public function __construct($meta, $data)
+    public function __construct( $data)
     {
-        $this->meta = $meta;
         $this->data = $data;
     }
 
-    /**
-     * @param mixed $meta
-     */
-    public function setMeta($meta): void
-    {
-        $this->meta = $meta;
-    }
 
     /**
      * @param mixed $data
      */
-    public function setData($data): void
+    public function setData(mixed $data): void
     {
         $this->data = $data;
     }

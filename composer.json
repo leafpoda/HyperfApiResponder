@@ -1,5 +1,5 @@
 {
-    "name": "leafpoda/hyperf-api-responder",
+    "name": "leafpoda/hyperf-responder-v3",
     "autoload": {
         "psr-4": {
             "Leafpoda\\HyperfApiResponder\\": "src/"
@@ -12,8 +12,8 @@
         }
     ],
     "require": {
-        "php": ">=8.0",
-        "hyperf/http-server": "3.0.*"
+        "php": ">=8.1",
+        "hyperf/http-server": "3.1.*"
     },
     "license": "MIT"
 }
