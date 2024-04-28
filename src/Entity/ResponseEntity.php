@@ -30,13 +30,13 @@ class ResponseEntity implements Arrayable
     /** @var string */
     public $message;
 
-    /** @var DataEntity */
+    /** @var mixed */
     public $data;
 
     /**
      * @param mixed $data
      */
-    public function __construct(int $code, string $message, DataEntity $data)
+    public function __construct(int $code, string $message, mixed $data)
     {
         $this->code = $code;
         $this->message = $message;

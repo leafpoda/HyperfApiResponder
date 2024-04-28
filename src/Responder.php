@@ -17,27 +17,27 @@ trait Responder
      * response item.
      * @param $item
      * @param null $resource
-     * @param array $meta
+     * @param array
      * @return ResponseInterface
      */
-    protected function responseItem($item, $resource = null, array $meta = []): ResponseInterface
+    protected function responseItem($item, $resource = null): ResponseInterface
     {
         if ($resource) {
             $resourceInstance = new $resource($item);
             $item = $resourceInstance->toArray();
         }
 
-        return $this->response->json(ResponseEntityFactory::responseEntity($item, $meta));
+        return $this->response->json(ResponseEntityFactory::responseEntity($item));
     }
 
     /**
      * response collection.
      * @param $collection
      * @param null $resource
-     * @param array $meta
+     * @param array
      * @return ResponseInterface
      */
-    protected function responseCollection($collection, $resource = null, array $meta = []): ResponseInterface
+    protected function responseCollection($collection, $resource = null): ResponseInterface
     {
         if ($resource) {
             $result = $collection->map(function ($item) use ($resource) {
@@ -48,17 +48,17 @@ trait Responder
             $result = &$collection;
         }
 
-        return $this->response->json(ResponseEntityFactory::responseEntity($result, $meta));
+        return $this->response->json(ResponseEntityFactory::responseEntity($result));
     }
 
     /**
      * response paginate.
      * @param $paginator
      * @param null $resource
-     * @param array $meta
+     * @param array
      * @return ResponseInterface
      */
-    protected function responsePaginate($paginator, $resource = null, array $meta = []): ResponseInterface
+    protected function responsePaginate($paginator, $resource = null): ResponseInterface
     {
         $paginated = $paginator->toArray();
         $links = Arr::only($paginated, ['first_page_url', 'last_page_url', 'prev_page_url', 'next_page_url']);
@@ -76,25 +76,24 @@ trait Responder
             $result = $paginator->items();
         }
 
-        return $this->response->json(ResponseEntityFactory::responseEntity($result, array_merge($meta, [
+        return $this->response->json(ResponseEntityFactory::responseEntity($result, array_merge($result, ['page_info'=>[
             'pagination' => $pagination,
             'links' => $links,
-        ])));
+        ]])));
     }
 
     /**
      * response data.
      * @param $data
-     * @param array $meta
+     * @param array
      * @param string $message
      * @return ResponseInterface
      */
     protected function responseData(
         $data,
-        array $meta = [],
         string $message = ResponseEntity::DEFAULT_SUCCESS_MESSAGE
     ): ResponseInterface {
-        return $this->response->json(ResponseEntityFactory::responseEntity($data, $meta, $message));
+        return $this->response->json(ResponseEntityFactory::responseEntity($data , $message));
     }
 
     /**
@@ -104,7 +103,7 @@ trait Responder
      */
     protected function responseSuccess(string $message = ResponseEntity::DEFAULT_SUCCESS_MESSAGE): ResponseInterface
     {
-        return $this->response->json(ResponseEntityFactory::responseEntity(null, null, $message));
+        return $this->response->json(ResponseEntityFactory::responseEntity(null, $message));
     }
 
     /**
@@ -121,7 +120,7 @@ trait Responder
         int $errorCode = ResponseEntity::DEFAULT_FAIL_CODE,
         int $httpStatusCode = 200
     ): ResponseInterface {
-        return $this->response->json(ResponseEntityFactory::responseEntity($data, null, $message, $errorCode))
+        return $this->response->json(ResponseEntityFactory::responseEntity($data, $message, $errorCode))
             ->withStatus($httpStatusCode);
     }
 
@@ -145,7 +144,7 @@ trait Responder
         string $message = ResponseEntity::DEFAULT_UNAUTHORIZED,
         int $httpStatusCode = 401
     ): ResponseInterface {
-        return $this->response->json(ResponseEntityFactory::responseEntity(null, null, $message, 401))
+        return $this->response->json(ResponseEntityFactory::responseEntity(null, $message, 401))
             ->withStatus($httpStatusCode);
     }
 
@@ -156,7 +155,7 @@ trait Responder
      */
     protected function responseCreated(string $message = ResponseEntity::DEFAULT_CREATED): ResponseInterface
     {
-        return $this->response->json(ResponseEntityFactory::responseEntity(null, null, $message))
+        return $this->response->json(ResponseEntityFactory::responseEntity(null, $message))
             ->withStatus(201);
     }
 
@@ -169,7 +168,7 @@ trait Responder
     protected function responseHttp(string $message = '', int $httpStatusCode = 200): ResponseInterface
     {
         return $this->response
-            ->json(ResponseEntityFactory::responseEntity(null, null, $message, $httpStatusCode))
+            ->json(ResponseEntityFactory::responseEntity(null, $message, $httpStatusCode))
             ->withStatus($httpStatusCode);
     }
 }

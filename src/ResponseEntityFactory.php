@@ -7,27 +7,19 @@ use Leafpoda\HyperfApiResponder\Entity\ResponseEntity;
 
 class ResponseEntityFactory
 {
-    /**
-     * DataEntity.
-     * @param mixed $data
-     * @param mixed $meta
-     */
-    public static function dataEntity($data = null, $meta = null): DataEntity
-    {
-        return new DataEntity(empty($meta) ? null : $meta, empty($data) ? null : $data);
-    }
 
     /**
      * ResponseEntity.
-     * @param mixed $data
-     * @param mixed $meta
+     * @param mixed|null $data
+     * @param string $message
+     * @param int $code
+     * @return ResponseEntity
      */
     public static function responseEntity(
-        $data = null,
-        $meta = null,
+        mixed  $data = null,
         string $message = ResponseEntity::DEFAULT_SUCCESS_MESSAGE,
-        int $code = ResponseEntity::SUCCESS_CODE
+        int    $code = ResponseEntity::SUCCESS_CODE
     ): ResponseEntity {
-        return new ResponseEntity($code, $message, self::dataEntity($data, $meta));
+        return new ResponseEntity($code, $message, $data);
     }
 }

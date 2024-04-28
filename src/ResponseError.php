@@ -2,15 +2,14 @@
 
 namespace Leafpoda\HyperfApiResponder;
 
-use App\Exception\ValidateException;
+use Hyperf\Codec\Json;
 use Hyperf\HttpMessage\Stream\SwooleStream;
-use Hyperf\Utils\Codec\Json;
 use Psr\Http\Message\ResponseInterface;
 use Leafpoda\HyperfApiResponder\Contracts\ServiceException;
 use Leafpoda\HyperfApiResponder\Contracts\NondisclosureException;
 use Leafpoda\HyperfApiResponder\Entity\ResponseEntity;
 use Throwable;
-
+use function Hyperf\Support\env;
 class ResponseError
 {
     /**
@@ -53,7 +52,6 @@ class ResponseError
             ->withStatus($statusCode)
             ->withBody(new SwooleStream(Json::encode(ResponseEntityFactory::responseEntity(
                 $data,
-                null,
                 $message,
                 $errorCode
             ))))->withHeader('Content-Type', 'application/json');
