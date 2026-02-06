@@ -1,19 +1,19 @@
 {
-    "name": "leafpoda/hyperf-responder-v3",
-    "autoload": {
-        "psr-4": {
-            "Leafpoda\\HyperfApiResponder\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "cayden",
-            "email": "cayden.chen@linkworld.cn"
-        }
-    ],
-    "require": {
-        "php": ">=8.1",
-        "hyperf/http-server": "3.1.*"
-    },
-    "license": "MIT"
+  "name": "leafpoda/hyperf-responder-v3",
+  "autoload": {
+    "psr-4": {
+      "Leafpoda\\HyperfApiResponder\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "cayden",
+      "email": "cayden.chen@linkworld.cn"
+    }
+  ],
+  "require": {
+    "php": ">=8.1",
+    "hyperf/http-server": ">=v3.0.0"
+  },
+  "license": "MIT"
 }
